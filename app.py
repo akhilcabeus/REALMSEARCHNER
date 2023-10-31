@@ -1,10 +1,9 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from waitress import serve
 import spacy
 
 app = Flask(__name__)
-CORS(app) 
+CORS(app)
 
 # Load the pre-trained SpaCy model
 nlp_ner = spacy.load("model-best")
@@ -28,7 +27,5 @@ def extract_entities():
     # Return the entities as a JSON response
     return jsonify(entities)
 
-# Check if the run is the main run
 if __name__ == '__main__':
-    # Use Waitress to serve the app
-    serve(app, host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=8000)
