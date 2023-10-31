@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-
+from waitress import serve
 import spacy
 
 app = Flask(__name__)
@@ -28,5 +28,7 @@ def extract_entities():
     # Return the entities as a JSON response
     return jsonify(entities)
 
+# Check if the run is the main run
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Use Waitress to serve the app
+    serve(app, host='0.0.0.0', port=5000)
