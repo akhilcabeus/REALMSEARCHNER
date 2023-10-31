@@ -31,4 +31,4 @@ def extract_entities():
 # Check if the run is the main run
 if __name__ == '__main__':
     # Use Waitress to serve the app
-    serve(app, host='0.0.0.0', port=5000)
+    serve(app, host='0.0.0.0', port=8000)
